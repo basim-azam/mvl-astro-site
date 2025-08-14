@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Required by the deploy step; sets up the Pages environment
+      # Needed for the deploy step
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -28,10 +28,9 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
+      - run: npm install          # <-- replace npm ci with this
       - run: npm run build
 
-      # Upload the ./dist output from Astro
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
