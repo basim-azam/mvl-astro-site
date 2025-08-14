@@ -1,0 +1,30 @@
+---
+const { title = 'MVL' } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container" aria-label="Primary">
+        <a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a>
+        <a href="/people" class={Astro.url.pathname.startsWith('/people') ? 'active' : ''}>People</a>
+        <a href="/research" class={Astro.url.pathname.startsWith('/research') ? 'active' : ''}>Research</a>
+        <a href="/news" class={Astro.url.pathname.startsWith('/news') ? 'active' : ''}>News</a>
+        <a href="/data" class={Astro.url.pathname.startsWith('/data') ? 'active' : ''}>Data</a>
+        <a href="/opportunities" class={Astro.url.pathname.startsWith('/opportunities') ? 'active' : ''}>Opportunities</a>
+      </nav>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="container">
+      <div><strong>Machine Vision Lab • MVL</strong><div class="small">School of Computing & Information Systems, The University of Melbourne</div></div>
+      <div class="small">© {new Date().getFullYear()}</div>
+    </footer>
+  </body>
+</html>

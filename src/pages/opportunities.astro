@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+const modules = import.meta.glob("../content/opportunities/*.{md,mdx}", { eager: true });
+const items = Object.values(modules).map(m => m.frontmatter).sort((a,b)=> (b.year||0)-(a.year||0));
+const title = "Opportunities";
+---
+<Base title={`MVL – ${title}`}>
+  <h1>{title}</h1>
+  <ul class="list" style="margin-top:.75rem">
+    {items.map((it) => (
+      <li>
+        <div>
+          <div style="font-weight:600">{it.title}</div>
+          {it.subtitle && <div class="small">{it.subtitle}</div>}
+          {it.meta && <div class="small">{it.meta}</div>}
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:center">
+          {it.paper && <a class="small" href={it.paper}>Paper</a>}
+          {it.code && <a class="small" href={it.code}>Code</a>}
+          {it.link && <a class="small" href={it.link}>Link</a>}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>

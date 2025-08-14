@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import news from "../news.json";
+---
+<Base title="MVL – Machine Vision Lab">
+  <section class="hero">
+    <div class="logo"><div style="font-size:44px;font-weight:800">MVL</div></div>
+    <h1 class="title">Machine Vision Lab</h1>
+  </section>
+
+  <section aria-labelledby="news">
+    <h2 id="news">News</h2>
+    <ul class="list" style="margin-top:.5rem">
+      {news.slice(0,6).map((n) => (
+        <li class="news-item">
+          <div class="news-thumb">{n.media && <img src={n.media} alt="news" style="width:100%;height:100%;object-fit:cover" />}</div>
+          <div><div class="small">{n.date}</div><div style="font-weight:600">{n.title}</div></div>
+          <a class="small" href={n.link}>Details</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section style="margin-top:2rem">
+    <ul class="honeycomb" role="list">
+      <li><a class="hex" href="/people">People</a></li>
+      <li><a class="hex" href="/research">Research</a></li>
+      <li><a class="hex" href="/news">News</a></li>
+      <li><a class="hex" href="/data">Data</a></li>
+      <li><a class="hex" href="/opportunities">Opportunities</a></li>
+    </ul>
+  </section>
+</Base>
