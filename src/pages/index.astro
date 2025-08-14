@@ -1,8 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import news from "../news.json";
-const base = import.meta.env.BASE_URL;   // ✅
+const base = import.meta.env.BASE_URL;  // "/mvl-astro-site/"
 ---
+
 <Base title="MVL – Machine Vision Lab">
   <section class="hero">
     <div class="logo"><div style="font-size:44px;font-weight:800">MVL</div></div>
@@ -13,9 +14,9 @@ const base = import.meta.env.BASE_URL;   // ✅
     <h2 id="news">News</h2>
     <ul class="list" style="margin-top:.5rem">
       {news.slice(0,6).map((n) => (
-        <li class="news-item">
-          <div class="news-thumb">{n.media && <img src={n.media} alt="news" style="width:100%;height:100%;object-fit:cover" />}</div>
-          <div><div class="small">{n.date}</div><div style="font-weight:600">{n.title}</div></div>
+        <li>
+          <div class="small">{n.date}</div>
+          <div style="font-weight:600">{n.title}</div>
           <a class="small" href={n.link}>Details</a>
         </li>
       ))}
@@ -24,12 +25,11 @@ const base = import.meta.env.BASE_URL;   // ✅
 
   <section style="margin-top:2rem">
     <ul class="honeycomb" role="list">
-    <li><a class="hex" href={`${base}people`}>People</a></li>
-    <li><a class="hex" href={`${base}research`}>Research</a></li>
-    <li><a class="hex" href={`${base}news`}>News</a></li>
-    <li><a class="hex" href={`${base}data`}>Data</a></li>
-    <li><a class="hex" href={`${base}opportunities`}>Opportunities</a></li>
+      <li><a class="hex" href={`${base}people`}>People</a></li>
+      <li><a class="hex" href={`${base}research`}>Research</a></li>
+      <li><a class="hex" href={`${base}news`}>News</a></li>
+      <li><a class="hex" href={`${base}data`}>Data</a></li>
+      <li><a class="hex" href={`${base}opportunities`}>Opportunities</a></li>
     </ul>
-
   </section>
 </Base>
