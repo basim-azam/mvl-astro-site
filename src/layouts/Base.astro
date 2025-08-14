@@ -1,7 +1,7 @@
 ---
+import "../styles/global.css";           // ✅ bundle CSS via Vite
 const { title = 'MVL' } = Astro.props;
-// Astro injects this based on `base` in astro.config.mjs
-const base = import.meta.env.BASE_URL;  // e.g. "/mvl-astro-site/"
+const base = import.meta.env.BASE_URL;   // e.g. "/mvl-astro-site/"
 ---
 
 <html lang="en">
@@ -9,8 +9,6 @@ const base = import.meta.env.BASE_URL;  // e.g. "/mvl-astro-site/"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <!-- Use base-aware path so CSS loads from /mvl-astro-site/style.css -->
-    <link rel="stylesheet" href={`${base}style.css`} />
   </head>
   <body>
     <header class="header">
