@@ -3,6 +3,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   integrations: [mdx()],
-  site: 'https://<your-username>.github.io/mvl-astro-site',
+  site: 'https://github.com/basim-azam/mvl-astro-site',
   output: 'static'
 });
