@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import news from "../news.json";
+const base = import.meta.env.BASE_URL;   // ✅
 ---
 <Base title="MVL – Machine Vision Lab">
   <section class="hero">
@@ -23,11 +24,12 @@ import news from "../news.json";
 
   <section style="margin-top:2rem">
     <ul class="honeycomb" role="list">
-      <li><a class="hex" href="/people">People</a></li>
-      <li><a class="hex" href="/research">Research</a></li>
-      <li><a class="hex" href="/news">News</a></li>
-      <li><a class="hex" href="/data">Data</a></li>
-      <li><a class="hex" href="/opportunities">Opportunities</a></li>
+    <li><a class="hex" href={`${base}people`}>People</a></li>
+    <li><a class="hex" href={`${base}research`}>Research</a></li>
+    <li><a class="hex" href={`${base}news`}>News</a></li>
+    <li><a class="hex" href={`${base}data`}>Data</a></li>
+    <li><a class="hex" href={`${base}opportunities`}>Opportunities</a></li>
     </ul>
+
   </section>
 </Base>
